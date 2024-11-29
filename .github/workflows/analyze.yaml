@@ -23,6 +23,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONARCLOUD_URL: https://api.sc-staging.io/
+          SONARCLOUD_URL: https://sc-staging.io/
         with:
           args: -X
