@@ -6,6 +6,17 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install system dependencies
+        uses: asdf-vm/actions/install@v3
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Run tests
+        run: bun test
   sonarcloud:
     name: SonarQube Cloud
     runs-on: ubuntu-latest
