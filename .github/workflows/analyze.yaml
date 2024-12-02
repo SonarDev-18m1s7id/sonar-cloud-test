@@ -19,9 +19,9 @@ jobs:
         run: bun test --coverage --coverage-reporter=lcov
       - name: Save coverage report
         uses: actions/cache@v4
-          with:
-            path: coverage
-            key: ${{ runner.os }}-coverage
+        with:
+          path: coverage
+          key: ${{ runner.os }}-coverage
   sonarcloud:
     needs: test
     name: SonarQube Cloud
