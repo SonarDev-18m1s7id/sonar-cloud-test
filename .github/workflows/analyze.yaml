@@ -6,9 +6,11 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  env:
-    cache-key: ${{ runner.os }}-coverage
   test:
+    env:
+      cache-key: ${{ runner.os }}-coverage
+    outputs:
+      cache-key: ${{ env.cache-key }}
     name: Test
     runs-on: ubuntu-latest
     steps:
@@ -50,7 +52,7 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: coverage
-          key: ${{ env.cache-key }}
+          key: ${{ needs.test.outputs.cache-key }}
       - name: SonarQube Cloud Scan
         uses: SonarSource/sonarcloud-github-action@v3.1.0
         env:
