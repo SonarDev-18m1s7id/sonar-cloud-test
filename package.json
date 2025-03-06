@@ -1,5 +1,9 @@
 {
   "devDependencies": {
+    "@sonar/scan": "^4.2.8",
     "@types/bun": "^1.1.14"
+  },
+  "scripts": {
+    "scan": "sonar -Dsonar.token=$SONAR_TOKEN"
   }
 }
